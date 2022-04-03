@@ -3,6 +3,7 @@ This file contains all the model related functions
 
 """
 
+import sys
 import pickle
 import numpy as np
 import pandas as pd
@@ -34,14 +35,15 @@ def train(data_path: str, model_out_path:str) -> None:
     acc = accuracy_score(y_te, y_hat)
     print(acc)
 
-def predict(model_path: str, data_path: str, pred_out_path: str) -> None:
+def predict(model_path: str, data_path: str, pred_out_path: str = None) -> None:
     """
     Uses a pre-trained model to predict the iris labels
 
     Args:
         model_path: The location of the trained model
         data_path: The location of the data with the features
-        pred_out_path: Where to save the predictions
+        pred_out_path: Where to save the predictions, if not provided, it will
+          output to the console
     
     """
     X = pd.read_csv(data_path)
@@ -49,6 +51,9 @@ def predict(model_path: str, data_path: str, pred_out_path: str) -> None:
         mod = pickle.load(f)
 
     y_hat = mod.predict(X)
+    
+    if pred_out_path is None:
+        pred_out_path = sys.stdout
     
     np.savetxt(pred_out_path, y_hat)
 
