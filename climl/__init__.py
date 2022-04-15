@@ -1,1 +1,3 @@
-__version__ = '0.1'
+"""climl package"""
+
+__version__ = "0.1"

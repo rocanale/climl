@@ -25,5 +25,6 @@ that can be installed or shipped into containers.
 ## Planned Improvements
 
 - Include tests
+- Allow input from stdin
 - Add CI/CD
 - Generate a Dockerfile
