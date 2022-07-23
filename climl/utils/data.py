@@ -5,7 +5,7 @@ import sys
 from sklearn.datasets import load_iris
 
 
-def gen_iris(output_path: str = None, only_inference: bool = False) -> None:
+def gen_iris(output_path: str | None = None, only_inference: bool = False) -> None:
     """
     Generates the iris data set containing four feature columns
     plus the target

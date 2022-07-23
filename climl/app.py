@@ -12,7 +12,7 @@ def main():
     our functions directly from the command line
 
     """
-    fire.Fire({"train": train, "predict": predict, "sample-data": gen_iris})
+    fire.Fire({"train": train, "predict": predict, "datagen": gen_iris})
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ setup(
         "fire >= 0.4.0",
     ],
     python_requires=">=3.8.0",
-    entry_points={"console_scripts": ["climl = climl.app:app"]},
+    entry_points={"console_scripts": ["climl = climl.app:main"]},
     version=climl.__version__,
     description="A test package",
     author="rocanale",

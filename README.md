@@ -9,22 +9,33 @@ It is usual that ML projects start from jupyter notebook, but the path of
 transforming them into a standalone applications is not clear.
 
 This repo contains an example of a callable machine learning python module
-that can be installed or shipped into containers.
+that can be executed from the command line.
 
-# Make it run
+## Make it run
 
 * Clone the repo
 * Install the package `pip install .`
 
-* Generate some sample data `climl sample-data > iris.csv`
+* Generate some sample data `climl datagen > iris.csv`
 * Train the model `climl train iris.csv model.pkl`
 
-* Generate inference data `climl sample-data --only-inference > iris2.csv`
+* Generate inference data `climl datagen --only-inference > iris2.csv`
 * Do inference `climl predict model.pkl iris2.csv`
+
+## Make it run with pipes
+
+The idea of this packages is to showcase machine learning pipelines using the
+command line
+
+`climl datagen | climl train > model.pkl`
+
+Or even more ambitious using file descriptors, wich will allow you to execute
+everythin in one line
+
+`climl predict <(climl datagen | climl train) <(climl datagen --only-inference)`
 
 ## Planned Improvements
 
 - Include tests
-- Allow input from stdin
 - Add CI/CD
 - Generate a Dockerfile
