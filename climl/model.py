@@ -41,8 +41,6 @@ def train(data_path: str | None = None, model_out_path: str | None = None) -> No
         with open(model_out_path, "wb") as fconn:
             pickle.dump(mod, fconn)
 
-    # TODO: evaluate accuracy on the test set
-
 
 def predict(
     model_path: str | None = None,

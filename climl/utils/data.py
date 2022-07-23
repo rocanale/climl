@@ -18,7 +18,7 @@ def gen_iris(output_path: str | None = None, only_inference: bool = False) -> No
     """
     if output_path is None:
         output_path = sys.stdout
-    iris = load_iris(as_frame=True)
+    iris_data, iris_labels = load_iris(as_frame=True, return_X_y=True)
     if not only_inference:
-        iris.data["target"] = iris.target
-    iris.data.to_csv(output_path, index=False)
+        iris_data["target"] = iris_labels
+    iris_data.to_csv(output_path, index=False)
